@@ -1,0 +1,88 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Ember test</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<script type="text/x-handlebars" data-template-name="application">
+  <div class="container">
+    {{view App.HeaderView}}
+    {{outlet}}
+  </div>
+</script>
+
+  <script type="text/x-handlebars" data-template-name="header">
+    <div class="navbar">
+      <div class="navbar-inner">
+          <ul id="header" class="nav">
+            <li><a {{action "goHome"}} href="#">All Names</a></li>
+            <li class="divider-vertical"></li>
+            <li><a {{action "create"}} href="#">Create Name</a></li>
+            <li class="divider-vertical"></li>
+          </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="posts">
+   <h1>All Names:</h1>
+   <ul class="nav nav-tabs nav-stacked">
+    {{#each content}}
+      <li><a {{action showPost this}} href="#">{{name}}</a></li>
+    {{/each}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="post">
+    <p>Hi {{content.name}}.</p>
+    <p>Here is a little info about him: {{content.desc}}</p>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="create-post">
+  <form class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="gg"> Name:</label>
+      
+      <div class="controls">
+      <input id="gg" name="name" type="text" placeholder="Input your name"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="description"> Description:</label>
+      
+      <div class="controls">
+      <input id="description" type="text" placeholder="Some description"/>
+      </div>
+    </div>
+    <div class="form-actions">
+    <button type="submit" class="btn btn-primary" {{action save}} >Save</button
+    </div>
+  </form>
+  </script>
+
+  <!-- The missing protocol means that it will match the current protocol, either http or https. If running locally, we use the local jQuery. -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+  <script src="js/libs/hb.js"></script>
+  <script src="js/libs/ember-pre.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
