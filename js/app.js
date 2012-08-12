@@ -1,14 +1,3 @@
-////////////////////////////////
-// Naming Convention in Ember.js
-////////////////////////////////
-
-// There are certain naming convention that Ember employed so that data are automagically binded to the view and controller.
-//
-// Lets say you are routing to "posts" and the parameter passed for connectOutlet method is "bomb". Ember will look for the BombView and also BombController object.
-// All controllers will have a "content" variable. This content variable will be used for setting values in the BombView.
-
-
-
 //////////////////////////////////////////////////
 //Create the Namespace and init the routing system
 //////////////////////////////////////////////////
